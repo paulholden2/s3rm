@@ -13,17 +13,10 @@ commander
   .version('0.1.0', '-v, --version')
   .option('--bucket <bucket>', 'S3 bucket name')
   .option('--prefix <prefix>', 'Object prefix')
-  .option('--access-key-id <accessKeyId>', 'AWS access key ID')
-  .option('--secret-access-key <secretAccessKey>', 'AWS secret access key')
   .parse(process.argv);
 
 if (!commander.bucket) {
   console.log('Bucket name is required');
-  process.exit(1);
-}
-
-if (!commander.accessKeyId || !commander.secretAccessKey) {
-  console.log('You must specify AWS credentials');
   process.exit(1);
 }
 
@@ -34,10 +27,7 @@ if (commander.prefix) {
 }
 
 function rm(bucket, prefix, nextKeyMarker, nextVersionIdMarker, callback) {
-  var s3 = new AWS.S3({
-    accessKeyId: commander.accessKeyId,
-    secretAccessKey: commander.secretAccessKey
-  });
+  var s3 = new AWS.S3();
 
   s3.listObjectVersions({
     Bucket: bucket,
