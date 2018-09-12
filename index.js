@@ -7,7 +7,6 @@
  */
 
 const AWS = require('aws-sdk');
-const async = require('async');
 const commander = require('commander');
 
 commander
