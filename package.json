@@ -24,7 +24,7 @@
   "author": "Paul Holden",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.311.0",
-    "commander": "^2.18.0"
+    "aws-sdk": "^2.759.0",
+    "commander": "^2.20.3"
   }
 }
